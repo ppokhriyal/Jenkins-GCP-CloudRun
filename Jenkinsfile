@@ -57,7 +57,7 @@ pipeline{
 	stage("Deploy Docker image to Cloud Run"){
 		steps{
 			sh ''' 
-				gcloud run deploy vanilla-cloudrun --image=us-central1-docker.pkg.dev/jenkins-377105/vanilla-artifact/vanilla-image:"$GIT_COMMIT" --max-instances=5 --min-instances=1 --region=us-central1
+				gcloud run deploy vanilla-cloudrun --image=us-central1-docker.pkg.dev/jenkins-377105/vanilla-artifact/vanilla-image:"$GIT_COMMIT" --max-instances=5 --min-instances=1 --region=us-central1 --allow-unauthenticated
 			'''
 		}
 	}
